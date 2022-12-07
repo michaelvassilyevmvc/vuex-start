@@ -10,6 +10,7 @@ export const store = new Vuex.Store({
       { name: "Shiny Star", price: 40 },
       { name: "Green Shells", price: 60 },
       { name: "Red Shells", price: 80 },
+      { name: "Boom Data", price: 80 },
     ],
   },
 });
