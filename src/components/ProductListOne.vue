@@ -2,7 +2,7 @@
   <div id="product-list-one">
     <h2>Product List One</h2>
     <ul>
-      <li v-for="product in salesProduct">
+      <li v-for="product in saleProducts">
         <span class="name">{{ product.name }}</span>
         <span class="price">{{ product.price }}</span>
       </li>
@@ -12,20 +12,17 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "ProductListOne",
   computed: {
     products() {
       return this.$store.state.products;
     },
-    salesProduct() {
-      return this.$store.getters.saleProducts;
-    },
+    ...mapGetters(["saleProducts"]),
   },
   methods: {
-    reducePrice(amount) {
-      return this.$store.dispatch("reducePrice", amount);
-    },
+    ...mapActions(["reducePrice"]),
   },
 };
 </script>
