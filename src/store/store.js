@@ -24,4 +24,16 @@ export const store = new Vuex.Store({
       return saleProducts;
     },
   },
+  mutations: {
+    reducePrice: (state, payload) => {
+      state.products.forEach((x) => (x.price -= payload));
+    },
+  },
+  actions: {
+    reducePrice: (context, payload) => {
+      setTimeout(function () {
+        context.commit("reducePrice", payload);
+      }, 2000);
+    },
+  },
 });
